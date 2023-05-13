@@ -1,0 +1,8 @@
+.pokemon_type_badge_text {
+    width: 70px;
+    height: 15px;
+    font-size: .7rem;
+    padding: 2px 5px;
+    border-radius: 3px;
+    text-align: center;
+}
