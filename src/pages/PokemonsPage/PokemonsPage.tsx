@@ -13,10 +13,18 @@ export default function PokemonsPage(): JSX.Element {
 
     return (
         <>
+            <header id="pokemons_page_header">
+                <img 
+                    src="https://www.nicolasbueno.com/wp-content/uploads/2017/04/inb-logo.png"
+                    alt="Logomarca Instituto Nicolas Bueno"
+                />
+                <h1>Pokedex˼</h1>
+            </header>
+            
             <SearchBar 
                 setFilteredPokemonData={setFilteredPokemonData}
             />
-            <main id="pokemons_page_container">
+            <main id="pokemons_page_main">
                 {filteredPokemonData?.map((pokemon: Pokemon) => <PokemonCard data={pokemon}/>)}
             </main>
         </>

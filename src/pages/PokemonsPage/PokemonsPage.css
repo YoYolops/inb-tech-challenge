@@ -1,14 +1,14 @@
-#pokemons_page_container {
-    width: 100%;
+#pokemons_page_main {
     max-width: 1000px;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     flex-wrap: wrap;
     margin: 0 auto;
+    gap: 15px;
 }
 
-#pokemons_page_container::before {
+#pokemons_page_main::before {
     content: "";
     position: absolute;
     top: 0;
@@ -21,4 +21,19 @@
     -webkit-transform-origin: 0;
     transform-origin: 0;
     height: 600px;
+}
+
+#pokemons_page_header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 5px;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+#pokemons_page_header > h1 {
+    align-self: first flex-end;
+    margin-left: 20px;
+    font-size: 1.6rem;
 }
