@@ -1,12 +1,17 @@
 import { createContext, useEffect, useState } from "react";
 import { ProviderProps, Pokemon, iPokemonDataContext } from "./interfaces";
 
-const PokemonDataContext = createContext<iPokemonDataContext>({});
+const PokemonDataContext = createContext<iPokemonDataContext>({
+    pokemonData: [],
+    selectedPokemon: undefined,
+});
 
 export function PokemonDataContextProvider(props: ProviderProps): JSX.Element {
     const [pokemonData, setPokemonData] = useState<Pokemon[]>([])
+    const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | undefined>();
 
     useEffect(() => {
+        // Criar api.service para gerenciar chamadas à api
         async function loadPokemonData() {
             const baseUrl = "https://pokeapi.co/api/v2/pokemon"
             const promises = []
@@ -16,6 +21,7 @@ export function PokemonDataContextProvider(props: ProviderProps): JSX.Element {
 
             const pokemonData = await Promise.all(promises);
             const formattedPokemonData = pokemonData.map(data => ({
+                // criar função util para formatar
                 id: data.id,
                 name: data.name,
                 baseExperience: data.base_experience,
@@ -26,15 +32,39 @@ export function PokemonDataContextProvider(props: ProviderProps): JSX.Element {
                 types: data.types.map((type: any) => (type.type.name)),
                 weight: data.weight
             }))
-            console.log(formattedPokemonData)
             setPokemonData(formattedPokemonData);
         }
         loadPokemonData();
     }, [])
 
+    function selectNextPokemon(): void {
+        setSelectedPokemon((previousSelectedPokemon: Pokemon | undefined) => {
+            if(!previousSelectedPokemon) return;
+
+            for(let i = 0; (i+1) < pokemonData.length; i++) {
+                if(pokemonData[i].id === previousSelectedPokemon.id) return pokemonData[i+1];
+            }
+            return previousSelectedPokemon;
+        })
+    }
+
+    function selectPreviousPokemon(): void {
+        setSelectedPokemon((previousSelectedPokemon: Pokemon | undefined) => {
+            if(!previousSelectedPokemon) return;
+
+            for(let i = pokemonData.length-1; (i-1) >= 0; i--) {
+                if(pokemonData[i].id === previousSelectedPokemon.id) return pokemonData[i-1];
+            }
+            return previousSelectedPokemon;
+        })
+    }
+
     return (
         <PokemonDataContext.Provider value={{
             pokemonData,
+            selectNextPokemon,
+            selectPreviousPokemon,
+            selectedPokemon
         }}>
             {props.children}
         </PokemonDataContext.Provider>

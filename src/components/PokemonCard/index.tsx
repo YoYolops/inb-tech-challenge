@@ -10,7 +10,7 @@ export default function PokemonCard(props: Props): JSX.Element {
     const { data: pokemon } = props;
 
     return (
-        <div id="pokemon_card">
+        <div className="pokemon_card">
             <img src={pokemon.sprite} alt={`${pokemon.name}'s sprite`} />
             <section className="pokemon_card_preview_info">
                 <h3>{`${pokemon.id} - ${pokemon.name}`}</h3>

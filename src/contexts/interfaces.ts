@@ -20,5 +20,8 @@ export interface Pokemon {
 }
 
 export interface iPokemonDataContext {
-    pokemonData?: Pokemon[]
+    pokemonData: Pokemon[] | undefined,
+    selectNextPokemon?(): void,
+    selectPreviousPokemon?(): void,
+    selectedPokemon: Pokemon | undefined
 }

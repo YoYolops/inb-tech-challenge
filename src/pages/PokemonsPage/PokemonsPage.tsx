@@ -9,8 +9,6 @@ export default function PokemonsPage(): JSX.Element {
     const { pokemonData } = useContext(PokemonDataContext);
     const [filteredPokemonData, setFilteredPokemonData] = useState(pokemonData);
 
-
-
     return (
         <>
             <header id="pokemons_page_header">
@@ -21,12 +19,13 @@ export default function PokemonsPage(): JSX.Element {
                 <h1>Pokedex˼</h1>
             </header>
             
-            <SearchBar 
-                setFilteredPokemonData={setFilteredPokemonData}
-            />
+            <SearchBar setFilteredPokemonData={setFilteredPokemonData} />
+
             <main id="pokemons_page_main">
-                {filteredPokemonData?.map((pokemon: Pokemon) => <PokemonCard data={pokemon}/>)}
+                {filteredPokemonData?.map((pokemon: Pokemon) => <PokemonCard key={pokemon.id} data={pokemon}/>)}
             </main>
+
+
         </>
     )
 }
