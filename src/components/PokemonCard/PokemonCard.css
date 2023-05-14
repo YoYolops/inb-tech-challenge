@@ -4,6 +4,7 @@
     border-radius: 5px;
     margin: 5px;
     background-color: #fff;
+    cursor: pointer;
 }
 
 #pokemon_card > img {
@@ -11,6 +12,8 @@
     height: 100px;
     object-fit: contain;
     margin-bottom: 5px;
+    background-color: #F2F2F2;
+    border-radius: inherit;
 }
 
 .pokemon_card_preview_info {

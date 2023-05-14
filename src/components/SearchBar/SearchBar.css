@@ -1,6 +1,6 @@
 .search_bar_container {
     width: clamp(50%, 600px, 95%);
-    height: 60px;
+    height: 50px;
     border-radius: 30px;
     display: flex;
     align-items: center;

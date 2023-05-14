@@ -1,17 +1,48 @@
 import "./SearchBar.css";
 import SearchIcon from "../Icons/SearchIcon";
+import { Pokemon } from "../../contexts/interfaces";
+import { useContext, useEffect, useState } from "react";
+import PokemonDataContext from "../../contexts/PokemonDataContext";
 
-export default function SearchBar(): JSX.Element {
-    function performSearch() {
-        
+interface Props {
+    setFilteredPokemonData: React.Dispatch<React.SetStateAction<Pokemon[] | undefined>>,
+}
+
+// Função fora do componente para evitar loop infinito no Effect, useCallback seria uma alternativa,
+// mas a documentação recomenda, se possível, a declaração externa.
+function performSearch(
+    searchInputString: string, 
+    pokemonData: Pokemon[] | undefined,
+    stateSetter: React.Dispatch<React.SetStateAction<Pokemon[] | undefined>>
+): void {
+    stateSetter(
+        pokemonData?.filter((pokemon: Pokemon) => 
+            pokemon.name
+                .toLowerCase()
+                .search(searchInputString.toLowerCase()) >= 0
+        )
+    )
+}
+
+export default function SearchBar({setFilteredPokemonData}: Props): JSX.Element {
+    const { pokemonData } = useContext(PokemonDataContext);
+    const [ searchInputString, setSearchInputString ] = useState<string>("");
+
+    useEffect(() => {
+        performSearch(searchInputString, pokemonData, setFilteredPokemonData);
+    }, [pokemonData, searchInputString, setFilteredPokemonData])
+
+    function handleInputChange(event: React.ChangeEvent<HTMLInputElement>): void {
+        setSearchInputString(event.target.value);
     }
 
     return (
             <form 
                 className="search_bar_container"
+                onSubmit={() => performSearch(searchInputString, pokemonData, setFilteredPokemonData)}
             >
                 <button type="submit">
-                    <SearchIcon height="32px" width="32px" color="#0ea6fe" />
+                    <SearchIcon height="32px" width="32px" color="#00B77E" />
                 </button>
 
                 <input 
@@ -19,6 +50,7 @@ export default function SearchBar(): JSX.Element {
                     name="searchInput"
                     placeholder="Buscar pokemon"
                     autoComplete="off"
+                    onChange={handleInputChange}
                 />
             </form>
     )

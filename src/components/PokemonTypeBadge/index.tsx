@@ -29,6 +29,7 @@ const colorsReferenceByPokemonType: any = {
 }
 
 export default function PokemonTypeBadge(props: Props): JSX.Element {
+    
     function getColorByPokemonType(typeName: string): ColorsReference {
         if(!colorsReferenceByPokemonType[typeName]) return {
             background: "black",
