@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { getHigherStatValue } from "../../core/helpers";
-import PokemonDataContext from "../../contexts/PokemonDataContext";
+import PokemonDataContext from "../../core/contexts/PokemonDataContext";
 import GraphicLine from "./GraphicLine";
 import PokemonTypeBadge from "../PokemonTypeBadge";
 import CloseIcon from "../Icons/CloseIcon";

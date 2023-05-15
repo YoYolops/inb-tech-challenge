@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { Pokemon, iPokemonDataContext } from "../core/types";
+import { Pokemon, iPokemonDataContext } from "../types";
 
 const PokemonDataContext = createContext<iPokemonDataContext>({
     pokemonData: [],

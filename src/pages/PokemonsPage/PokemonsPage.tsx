@@ -1,5 +1,5 @@
 import { useContext, useState } from "react"
-import PokemonDataContext from "../../contexts/PokemonDataContext"
+import PokemonDataContext from "../../core/contexts/PokemonDataContext"
 import PokemonCard from "../../components/PokemonCard";
 import { Pokemon } from "../../core/types";
 import SearchBar from "../../components/SearchBar";

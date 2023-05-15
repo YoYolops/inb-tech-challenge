@@ -2,7 +2,7 @@ import "./SearchBar.css";
 import SearchIcon from "../Icons/SearchIcon";
 import { Pokemon } from "../../core/types";
 import { useContext, useEffect, useState } from "react";
-import PokemonDataContext from "../../contexts/PokemonDataContext";
+import PokemonDataContext from "../../core/contexts/PokemonDataContext";
 
 interface Props {
     setFilteredPokemonData: React.Dispatch<React.SetStateAction<Pokemon[] | undefined>>,

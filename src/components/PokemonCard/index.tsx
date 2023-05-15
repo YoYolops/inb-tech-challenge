@@ -1,7 +1,7 @@
 import { Pokemon } from "../../core/types"
 import PokemonTypeBadge from "../PokemonTypeBadge";
 import { useContext } from "react";
-import PokemonDataContext from "../../contexts/PokemonDataContext";
+import PokemonDataContext from "../../core/contexts/PokemonDataContext";
 import "./PokemonCard.css"
 
 interface Props {
