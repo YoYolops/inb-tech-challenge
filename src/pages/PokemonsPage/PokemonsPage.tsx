@@ -25,7 +25,7 @@ export default function PokemonsPage(): JSX.Element {
             <main id="pokemons_page_main">
                 {filteredPokemonData?.map((pokemon: Pokemon) => <PokemonCard key={pokemon.id} data={pokemon}/>)}
             </main>
-
+            
             <PokemonDetailer />
         </>
     )

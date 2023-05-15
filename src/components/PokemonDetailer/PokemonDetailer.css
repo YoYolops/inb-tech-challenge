@@ -1,41 +1,68 @@
 #pokemon_detailer {
     width: 100%;
-    max-width: 800px    ;
     position: fixed;
     bottom: 0px;
-    left: 0px;
     background-color: aquamarine;
     padding: 40px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
 }
 
-#pokemon_detailer > button {
-    font-size: 1.6rem;
+#close_button {
+    text-decoration: none;
+    border: none;
+    outline: none;
+    height: 64px;
+    width: 64px;
+    background: transparent;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    top: 10px;
+    right: 0px;
+    cursor: pointer;
+}
+
+#upper_section {
+    width: 100%;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1000px;
+}
+
+#upper_section > #image_container > img {
+    object-fit: contain;
+    width: 100%;
+    max-height: 200px;
+}
+
+#image_container {
+    position: relative;
+}
+
+#image_container > button {
+    font-size: 2.2rem;
     position: absolute;
     outline: none;
     border: none;
     background-color: transparent;
-    top: 0px;
+    top: 70px;
     cursor: pointer;
 }
 
 #next_button {
-    right: 20px;
+    right: 5px;
 }
 
 #previous_button {
-    left: 10px;
-}
-
-#upper_section {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-#upper_section > img {
-    object-fit: contain;
-    width: 50%;
-    max-height: 200px;
+    left: 5px;
 }
 
 #upper_section > div {
@@ -70,6 +97,11 @@
 
 .characteristics_label {
 
+}
+
+#lower_section {
+    width: 100%;
+    max-width: 1000px;
 }
 
 .graph_line_container {

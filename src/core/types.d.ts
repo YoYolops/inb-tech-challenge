@@ -22,3 +22,9 @@ export interface iPokemonDataContext {
     selectedPokemon: Pokemon | undefined,
     setSelectedPokemon?: React.Dispatch<React.SetStateAction<Pokemon | undefined>>
 }
+
+export interface IconsProps {
+    width?: string,
+    height?: string,
+    color?: string,
+}

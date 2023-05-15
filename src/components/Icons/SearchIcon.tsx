@@ -1,10 +1,6 @@
-interface Props {
-    width?: string,
-    height?: string,
-    color?: string,
-}
+import { IconsProps } from "../../core/types";
 
-export default function SearchIcon(props: Props) {
+export default function SearchIcon(props: IconsProps) {
     const { width, height, color } = props;
 
     return (
