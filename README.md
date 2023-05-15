@@ -46,3 +46,5 @@ to do:
 [ ] - concentrar interfaces e types em um arquivo só
 [ ] - Criar api.service com baseUrl em env variable
 [ ] - Substituir conditional chaining (?.) por if not return loading
+[ ] - revisar lógica de tamanho de linhas de stats graph
+[ ] - exibir borda em card que foi selecionado

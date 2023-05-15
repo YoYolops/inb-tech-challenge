@@ -5,11 +5,31 @@
     bottom: 0px;
     left: 0px;
     background-color: aquamarine;
+    padding: 40px 10px 10px;
+}
+
+#pokemon_detailer > button {
+    font-size: 1.6rem;
+    position: absolute;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    top: 0px;
+    cursor: pointer;
+}
+
+#next_button {
+    right: 20px;
+}
+
+#previous_button {
+    left: 10px;
 }
 
 #upper_section {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 #upper_section > img {
@@ -34,10 +54,11 @@
     justify-content: flex-end;
     gap: 10px;
     margin-bottom: 20px;
+    padding-right: 20px;
 }
 
 #pokemon_characteristics {
-
+    padding-right: 20px;
 }
 
 .characteristic_cell {
@@ -67,7 +88,7 @@
 }
 
 .graph_line_label {
-    width: 70px !important;
+    width: 70px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;

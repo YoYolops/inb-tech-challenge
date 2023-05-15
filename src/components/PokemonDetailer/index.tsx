@@ -17,8 +17,12 @@ export default function PokemonDetailer(): JSX.Element {
 
     return (
         <div id="pokemon_detailer">
+            <button id="previous_button" onClick={selectPreviousPokemon}>«</button>
+            <button id="next_button" onClick={selectNextPokemon}>»</button>
+
             <section id="upper_section">
-                <img src={pokemon?.sprite} alt={`${pokemon?.name}'s front side`}/>
+
+                <img src={pokemon?.sprite} alt={`${pokemon?.name}'s front side`} />
 
                 <div>
                     <p>{pokemon?.name}</p>
