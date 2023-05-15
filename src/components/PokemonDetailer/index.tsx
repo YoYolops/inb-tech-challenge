@@ -1,17 +1,10 @@
 import { useContext } from "react";
-import { Stat } from "../../core/types";
+import { getHigherStatValue } from "../../core/helpers";
 import PokemonDataContext from "../../contexts/PokemonDataContext";
 import GraphicLine from "./GraphicLine";
 import PokemonTypeBadge from "../PokemonTypeBadge";
 import CloseIcon from "../Icons/CloseIcon";
 import "./PokemonDetailer.css"
-
-function getHigherStatValue(stats: Stat[]): number {
-    // inserir em helpers
-    let maxValueFound = 0;
-    for(const stat of stats) if (stat.value > maxValueFound) maxValueFound = stat.value;
-    return maxValueFound;
-}
 
 export default function PokemonDetailer(): JSX.Element {
     const {

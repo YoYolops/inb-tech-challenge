@@ -23,6 +23,31 @@ export interface iPokemonDataContext {
     setSelectedPokemon?: React.Dispatch<React.SetStateAction<Pokemon | undefined>>
 }
 
+export interface ColorsReference {
+    background: string,
+    font: string
+}
+
+export interface ColorsReferenceByPokemonType {
+    poison?: ColorsReference,
+    fire?: ColorsReference,
+    grass?: ColorsReference,
+    water?: ColorsReference,
+    flying?: ColorsReference,
+    bug?: ColorsReference,
+    normal?: ColorsReference,
+    electric?: ColorsReference,
+    ground?: ColorsReference,
+    fairy?: ColorsReference,
+    fighting?: ColorsReference,
+    psychic?: ColorsReference,
+    rock?: ColorsReference,
+    steel?: ColorsReference,
+    ice?: ColorsReference,
+    ghost?: ColorsReference,
+}
+
+
 export interface IconsProps {
     width?: string,
     height?: string,
