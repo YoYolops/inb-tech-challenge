@@ -1,8 +1,4 @@
-export interface ProviderProps {
-    children: JSX.Element
-}
-
-interface Stat {
+export interface Stat {
     name: string, 
     value: number
 }
@@ -23,5 +19,6 @@ export interface iPokemonDataContext {
     pokemonData: Pokemon[] | undefined,
     selectNextPokemon?(): void,
     selectPreviousPokemon?(): void,
-    selectedPokemon: Pokemon | undefined
+    selectedPokemon: Pokemon | undefined,
+    setSelectedPokemon?: React.Dispatch<React.SetStateAction<Pokemon | undefined>>
 }

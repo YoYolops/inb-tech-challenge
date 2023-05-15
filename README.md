@@ -41,3 +41,8 @@ E então? Você nos ajuda nessa missão? Você tem 5 dias a partir de agora.
 
 
 Aguardamos ansiosamente seus resultados. Boa sorte e se divirta fazendo!
+
+to do: 
+[ ] - concentrar interfaces e types em um arquivo só
+[ ] - Criar api.service com baseUrl em env variable
+[ ] - Substituir conditional chaining (?.) por if not return loading

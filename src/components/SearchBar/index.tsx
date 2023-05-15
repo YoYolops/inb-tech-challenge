@@ -1,6 +1,6 @@
 import "./SearchBar.css";
 import SearchIcon from "../Icons/SearchIcon";
-import { Pokemon } from "../../contexts/interfaces";
+import { Pokemon } from "../../core/types";
 import { useContext, useEffect, useState } from "react";
 import PokemonDataContext from "../../contexts/PokemonDataContext";
 

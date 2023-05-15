@@ -1,0 +1,86 @@
+#pokemon_detailer {
+    width: 100%;
+    max-width: 800px    ;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    background-color: aquamarine;
+}
+
+#upper_section {
+    display: flex;
+    justify-content: space-between;
+}
+
+#upper_section > img {
+    object-fit: contain;
+    width: 50%;
+    max-height: 200px;
+}
+
+#upper_section > div {
+    width: 50%;
+}
+
+#upper_section > div > p {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#type_badges_container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#pokemon_characteristics {
+
+}
+
+.characteristic_cell {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid red;
+    margin-bottom: 10px;
+}
+
+.characteristics_label {
+
+}
+
+.graph_line_container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.label_line_container {
+    display: flex;
+    flex: 1;
+    max-width: calc(100%-300px);
+}
+
+.graph_line_label {
+    width: 70px !important;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: .7rem;
+    margin-right: 5px;
+}
+
+.graph_line {
+    height: 20px;
+    background-color: red;
+}
+
+.graph_line_value {
+    width: 60px;
+    text-align: center;
+}

@@ -1,10 +1,14 @@
 import { createContext, useEffect, useState } from "react";
-import { ProviderProps, Pokemon, iPokemonDataContext } from "./interfaces";
+import { Pokemon, iPokemonDataContext } from "../core/types";
 
 const PokemonDataContext = createContext<iPokemonDataContext>({
     pokemonData: [],
     selectedPokemon: undefined,
 });
+
+export interface ProviderProps {
+    children: JSX.Element
+}
 
 export function PokemonDataContextProvider(props: ProviderProps): JSX.Element {
     const [pokemonData, setPokemonData] = useState<Pokemon[]>([])
@@ -32,6 +36,7 @@ export function PokemonDataContextProvider(props: ProviderProps): JSX.Element {
                 types: data.types.map((type: any) => (type.type.name)),
                 weight: data.weight
             }))
+            console.log(formattedPokemonData)
             setPokemonData(formattedPokemonData);
         }
         loadPokemonData();
@@ -64,7 +69,8 @@ export function PokemonDataContextProvider(props: ProviderProps): JSX.Element {
             pokemonData,
             selectNextPokemon,
             selectPreviousPokemon,
-            selectedPokemon
+            selectedPokemon,
+            setSelectedPokemon
         }}>
             {props.children}
         </PokemonDataContext.Provider>
