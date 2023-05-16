@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { Pokemon, iPokemonDataContext } from "../types";
+import DataService from "../services/data.service";
 
 const PokemonDataContext = createContext<iPokemonDataContext>({
     pokemonData: [],
@@ -10,36 +11,18 @@ export interface ProviderProps {
     children: JSX.Element
 }
 
+const dataService = DataService();
+
 export function PokemonDataContextProvider(props: ProviderProps): JSX.Element {
     const [pokemonData, setPokemonData] = useState<Pokemon[]>([])
     const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | undefined>();
 
     useEffect(() => {
-        // Criar api.service para gerenciar chamadas à api
-        async function loadPokemonData() {
-            const baseUrl = "https://pokeapi.co/api/v2/pokemon"
-            const promises = []
-            for(let i = 1; i <= 50; i++) {
-                promises.push(fetch(`${baseUrl}/${i}`).then(response => response.json()))
-            }
-
-            const pokemonData = await Promise.all(promises);
-            const formattedPokemonData = pokemonData.map(data => ({
-                // criar função util para formatar
-                id: data.id,
-                name: data.name,
-                baseExperience: data.base_experience,
-                height: data.height,
-                movesAmount: data.moves.length,
-                sprite: data.sprites.front_default,
-                stats: data.stats.map((stat: any) => ({name: stat.stat.name, value: stat.base_stat})),
-                types: data.types.map((type: any) => (type.type.name)),
-                weight: data.weight
-            }))
-            console.log(formattedPokemonData)
-            setPokemonData(formattedPokemonData);
+        async function loadDataWrapper() {
+            const pokemonData = await dataService.loadPokemonData();
+            setPokemonData(prev => ([...prev, ...(dataService.formatPokemonData(pokemonData))]))
         }
-        loadPokemonData();
+        loadDataWrapper();
     }, [])
 
     function selectNextPokemon(): void {

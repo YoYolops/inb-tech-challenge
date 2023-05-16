@@ -1,22 +1,31 @@
+import { Pokemon } from "../types";
+
+
 export default function DataService() {
     const baseUrl = process.env.REACT_APP_API_BASE_URL;
     const maxDataAmount = 1281;
     let loadedAmount: number = 0;
 
-    async function loadPokemonData() {
+    async function loadPokemonData(): Promise<Pokemon[] > {
         const promises = []
         let from: number = loadedAmount + 1;
         let to: number = from + 50;
 
-        if(from > maxDataAmount) return;
+        if(from > maxDataAmount) return [];
         if(to > maxDataAmount) to = maxDataAmount; 
 
-        for(let i = from; i <= to; i++) {
+        for(let i = from; i < to; i++) {
+            console.log(i)
             promises.push(fetch(`${baseUrl}/${i}`).then(response => response.json()))
         }
 
+        loadedAmount += 50;
         const pokemonData = await Promise.all(promises);
-        const formattedPokemonData = pokemonData.map(data => ({
+        return pokemonData;
+    }
+
+    function formatPokemonData(pokemonData: any): Pokemon[] {
+        return pokemonData.map((data: any) => ({
             // criar função util para formatar
             id: data.id,
             name: data.name,
@@ -28,12 +37,10 @@ export default function DataService() {
             types: data.types.map((type: any) => (type.type.name)),
             weight: data.weight
         }))
-
-        loadedAmount += formattedPokemonData.length;
-        return formattedPokemonData;
     }
 
     return {
-
+        loadPokemonData,
+        formatPokemonData
     }
 }

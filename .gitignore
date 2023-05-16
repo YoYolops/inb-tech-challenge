@@ -152,5 +152,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# arquivos de teste
 joaninha.js
 joaninha.ts
