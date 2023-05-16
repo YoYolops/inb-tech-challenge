@@ -17,10 +17,10 @@ export interface Pokemon {
 
 export interface iPokemonDataContext {
     pokemonData: Pokemon[] | undefined,
-    selectNextPokemon?(): void,
-    selectPreviousPokemon?(): void,
+    selectNextPokemon(): void,
+    selectPreviousPokemon(): void,
     selectedPokemon: Pokemon | undefined,
-    setSelectedPokemon?: React.Dispatch<React.SetStateAction<Pokemon | undefined>>,
+    setSelectedPokemon: React.Dispatch<React.SetStateAction<Pokemon | undefined>>,
     getMorePokemonData?(): Promise<number>
 }
 

@@ -5,6 +5,9 @@ import DataService from "../services/data.service";
 const PokemonDataContext = createContext<iPokemonDataContext>({
     pokemonData: [],
     selectedPokemon: undefined,
+    setSelectedPokemon: () => {},
+    selectPreviousPokemon: () => {},
+    selectNextPokemon: () => {}
 });
 
 export interface ProviderProps {

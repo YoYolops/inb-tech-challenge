@@ -12,7 +12,6 @@ export function capitalizeString(str: string): string {
 }
 
 export function getHigherStatValue(stats: Stat[]): number {
-    // inserir em helpers
     let maxValueFound = 0;
     for(const stat of stats) if (stat.value > maxValueFound) maxValueFound = stat.value;
     return maxValueFound;

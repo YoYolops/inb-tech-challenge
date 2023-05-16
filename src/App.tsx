@@ -1,5 +1,4 @@
 import {PokemonDataContextProvider} from './core/contexts/PokemonDataContext';
-import './App.css';
 import PokemonsPage from './pages/PokemonsPage/PokemonsPage';
 
 function App() {
