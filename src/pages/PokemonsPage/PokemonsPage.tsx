@@ -4,6 +4,7 @@ import PokemonCard from "../../components/PokemonCard";
 import { Pokemon } from "../../core/types";
 import SearchBar from "../../components/SearchBar";
 import PokemonDetailer from "../../components/PokemonDetailer";
+import DataLoaderButton from "../../components/DataLoaderButton";
 import "./PokemonsPage.css";
 
 export default function PokemonsPage(): JSX.Element {
@@ -24,6 +25,7 @@ export default function PokemonsPage(): JSX.Element {
 
             <main id="pokemons_page_main">
                 {filteredPokemonData?.map((pokemon: Pokemon) => <PokemonCard key={pokemon.id} data={pokemon}/>)}
+                {filteredPokemonData && <DataLoaderButton />}
             </main>
             
             <PokemonDetailer />

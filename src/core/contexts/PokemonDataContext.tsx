@@ -47,13 +47,22 @@ export function PokemonDataContextProvider(props: ProviderProps): JSX.Element {
         })
     }
 
+    async function getMorePokemonData(): Promise<number> {
+        const pokemonData = await dataService.loadPokemonData();
+        // Retorna false quando todos os pokemons já foram carregados
+
+        setPokemonData(prev => ([...prev, ...(dataService.formatPokemonData(pokemonData))]))
+        return pokemonData[pokemonData.length-1].id;
+    }
+
     return (
         <PokemonDataContext.Provider value={{
             pokemonData,
             selectNextPokemon,
             selectPreviousPokemon,
             selectedPokemon,
-            setSelectedPokemon
+            setSelectedPokemon,
+            getMorePokemonData
         }}>
             {props.children}
         </PokemonDataContext.Provider>

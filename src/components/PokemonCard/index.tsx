@@ -2,6 +2,7 @@ import { Pokemon } from "../../core/types"
 import PokemonTypeBadge from "../PokemonTypeBadge";
 import { useContext } from "react";
 import PokemonDataContext from "../../core/contexts/PokemonDataContext";
+import { capitalizeString } from "../../core/helpers";
 import "./PokemonCard.css"
 
 interface Props {
@@ -24,7 +25,7 @@ export default function PokemonCard(props: Props): JSX.Element {
         >
             <img src={pokemon.sprite} alt={`${pokemon.name}'s sprite`} />
             <section className="pokemon_card_preview_info">
-                <h3>{`${pokemon.id} - ${pokemon.name}`}</h3>
+                <h3>{`${pokemon.id} - ${capitalizeString(pokemon.name)}`}</h3>
                 <div>{pokemon.types.map(typeName => <PokemonTypeBadge key={typeName} typeName={typeName}/>)}</div>
             </section>
         </div>

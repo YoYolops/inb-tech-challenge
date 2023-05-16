@@ -39,7 +39,7 @@ export function getColorByPokemonType(typeName: string): ColorsReference {
     }
 
     if(!colorsReferenceByPokemonType[typeName]) return {
-        background: "black",
+        background: "#3f3f3f",
         font: "white"
     }
     return colorsReferenceByPokemonType[typeName];

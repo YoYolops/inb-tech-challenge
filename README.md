@@ -44,7 +44,15 @@ Aguardamos ansiosamente seus resultados. Boa sorte e se divirta fazendo!
 
 to do: 
 [x] - concentrar interfaces e types genéricos em um arquivo só (interfaces de props continuam declaradas dentro de seus respectivos componentes)
-[ ] - Criar api.service com baseUrl em env variable
-[ ] - Substituir conditional chaining (?.) por if not return loading
-[ ] - revisar lógica de tamanho de linhas de stats graph
-[ ] - exibir borda em card que foi selecionado
+
+[x] - Criar api.service com baseUrl em env variable
+
+[+/-] - Substituir conditional chaining (?.) por if not return loading
+
+[x] - revisar lógica de tamanho de linhas de stats graph
+
+[x] - exibir borda em card que foi selecionado
+
+
+to do doc: 
+[ ] - Comentar paginação

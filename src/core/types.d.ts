@@ -20,7 +20,8 @@ export interface iPokemonDataContext {
     selectNextPokemon?(): void,
     selectPreviousPokemon?(): void,
     selectedPokemon: Pokemon | undefined,
-    setSelectedPokemon?: React.Dispatch<React.SetStateAction<Pokemon | undefined>>
+    setSelectedPokemon?: React.Dispatch<React.SetStateAction<Pokemon | undefined>>,
+    getMorePokemonData?(): Promise<number>
 }
 
 export interface ColorsReference {

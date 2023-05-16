@@ -4,6 +4,13 @@
     border-radius: 5px;
     background-color: #fff;
     cursor: pointer;
+    transform: scale(1);
+    transition: transform .2s ease-out;
+}
+
+.pokemon_card:hover {
+    transform: scale(1.05);
+    transition: transform .2s ease-in;
 }
 
 .pokemon_card > img {

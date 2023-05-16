@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { getHigherStatValue } from "../../core/helpers";
+import { getHigherStatValue, getColorByPokemonType, capitalizeString } from "../../core/helpers";
 import PokemonDataContext from "../../core/contexts/PokemonDataContext";
 import GraphicLine from "./GraphicLine";
 import PokemonTypeBadge from "../PokemonTypeBadge";
@@ -20,17 +20,17 @@ export default function PokemonDetailer(): JSX.Element {
 
     if(!pokemon) return <></>;
     return (
-        <div id="pokemon_detailer">
+        <div id="pokemon_detailer" style={{ border: `2px solid ${getColorByPokemonType(pokemon.types[0]).background}` }}>
             <button id="close_button" onClick={closePokemonDetailer}><CloseIcon /></button>
             <section id="upper_section">
-                <div id="image_container">
+                <div id="image_container" style={{ backgroundColor: getColorByPokemonType(pokemon.types[0]).background }}>
                     <button id="previous_button" onClick={selectPreviousPokemon}>«</button>
                     <button id="next_button" onClick={selectNextPokemon}>»</button>
                     <img src={pokemon.sprite} alt={`${pokemon.name}'s front side`} />
                 </div>
 
                 <div>
-                    <p>{pokemon.name}</p>
+                    <p>{capitalizeString(pokemon.name)}</p>
 
                     <div id="type_badges_container">{
                         pokemon.types.map(typeName => <PokemonTypeBadge key={typeName} typeName={typeName}/>)
@@ -57,6 +57,7 @@ export default function PokemonDetailer(): JSX.Element {
                     pokemon.stats.map(stat => 
                         <GraphicLine 
                             key={stat.name}
+                            barColor={getColorByPokemonType(pokemon.types[0]).background}
                             label={stat.name}
                             value={stat.value}
                             maxValue={getHigherStatValue(pokemon.stats)}

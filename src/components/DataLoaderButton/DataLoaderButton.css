@@ -1,0 +1,15 @@
+#load_more_data_button {
+    bottom: 0px;
+    margin: 20px 0px 0px 0px;
+    border-radius: 5px 5px 0px 0px;
+    border: none;
+    color: #fff;
+    background-color: #00B77E;
+    height: 64px;
+    width: 100%;
+    max-width: 850px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    overflow: hidden;
+}
