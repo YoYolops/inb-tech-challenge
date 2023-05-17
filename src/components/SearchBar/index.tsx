@@ -8,8 +8,6 @@ interface Props {
     setFilteredPokemonData: React.Dispatch<React.SetStateAction<Pokemon[] | undefined>>,
 }
 
-// Função fora do componente para evitar loop infinito no Effect, useCallback seria uma alternativa,
-// mas a documentação recomenda, se possível, a declaração externa.
 function performSearch(
     searchInputString: string, 
     pokemonData: Pokemon[] | undefined,

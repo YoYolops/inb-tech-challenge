@@ -21,7 +21,9 @@ export default function PokemonDetailer(): JSX.Element {
     if(!pokemon) return <></>;
     return (
         <div id="pokemon_detailer" style={{ border: `2px solid ${getColorByPokemonType(pokemon.types[0]).background}` }}>
-            <button id="close_button" onClick={closePokemonDetailer}><CloseIcon /></button>
+            <button id="close_button" onClick={closePokemonDetailer}>
+                <CloseIcon />
+            </button>
             <section id="upper_section">
                 <div id="image_container" style={{ backgroundColor: getColorByPokemonType(pokemon.types[0]).background }}>
                     <button id="previous_button" onClick={selectPreviousPokemon}>«</button>
@@ -38,16 +40,20 @@ export default function PokemonDetailer(): JSX.Element {
 
                     <div id="pokemon_characteristics">
                         <div className="characteristic_cell">
-                            <p className="characteristic_label">XP Base</p> <p>{pokemon.baseExperience}</p>
+                            <p className="characteristic_label">XP Base</p> 
+                            <p>{pokemon.baseExperience}</p>
                         </div>
                         <div className="characteristic_cell">
-                            <p className="characteristic_label">Altura</p> <p>{pokemon.height}</p>
+                            <p className="characteristic_label">Altura</p>
+                            <p>{pokemon.height}</p>
                         </div>
                         <div className="characteristic_cell">
-                            <p className="characteristic_label">Movimentos</p> <p>{pokemon.movesAmount}</p>
+                            <p className="characteristic_label">Movimentos</p>
+                            <p>{pokemon.movesAmount}</p>
                         </div>
                         <div className="characteristic_cell">
-                            <p className="characteristic_label">Peso</p> <p>{pokemon.weight}</p>
+                            <p className="characteristic_label">Peso</p>
+                            <p>{pokemon.weight}</p>
                         </div>
                     </div>
                 </div>

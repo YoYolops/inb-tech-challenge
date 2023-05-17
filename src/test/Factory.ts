@@ -1,4 +1,4 @@
-import { Pokemon, iPokemonDataContext } from "../core/types"
+import { Pokemon } from "../core/types"
 
 export default function Factory() {
     function pokemon(): Pokemon {

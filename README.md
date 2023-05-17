@@ -1,58 +1,36 @@
-Olá! Você chegou à segunda etapa do nosso processo seletivo e nós temos uma importante missão para você!
+<h1 align="center">Antes de qualquer coisa, para rodar localmente: </h1>
+
+```bash
+    git clone https://github.com/YoYolops/inb-tech-challenge && 
+    cd inb-tech-challenge &&
+    mv .env.example .env &&
+    npm i && npm start
+```
+As variáveis de ambiemte já vão ficar prontinhas. <br>
+Mas pra deixar anotado, só tem uma:
+```.env
+REACT_APP_API_BASE_URL=https://pokeapi.co/api/v2/pokemon
+```
 
 
-Precisamos muito da sua ajuda! É que nosso principal sistema de controle de Pokémons acabou se perdendo, e nós ficamos apenas com os registros deles na nossa api -> https://pokeapi.co/.
+<h3 align="left">Rodando os testes: </h3>
 
+```bash
+    npm test
+```
 
-Agora, nós queremos criar um novo sistema, queremos ter um design futurista, seguindo como base esse estilo, mas você pode fazer da maneira que achar melhor. Mas, calma, eu te explico melhor a sua missão.
+## O que fiz:
+Optei por usar o mínimo de bibliotecas possíveis. <br> 
+Manter a simplicidade e tentar fazer bem feito era a ideia. <br>
+<strong>Front-end construído com React, CSS puro para estilizar</strong> e fim, todo o restante são ferramentas React, exceto pelos testes.
 
+<h1 align="center">Estrutura do projeto: </h1>
 
-No nosso sistema, precisaremos das seguintes telas:
-
-
-- Uma visualização de gráficos com os dados dos nossos Pokémons;
-- Uma página para pesquisar os Pokémons com uma barra de pesquisa no topo;
-- Um card com os dados do Pokémon.
-
-
-Escolha quais dados você julga mais importante para aparecer, não precisa tela de login ou qualquer outro tipo de implementação.
-
-
-- Utilize frameworks com typescript, de preferência Vue, mas podendo ser outros para a sua solução.
-- Utilize um repositório público para fazer!
-
-
-É importante lembrar que, com essa atividade, você será avaliado em:
-
-
-- Qualidade e limpeza de código
-- Funcionalidade do sistema e bugs
-
-
-Ah! Contam como Pontos extras:
-
-
-- Testes Unitários;
-- Arquitetura implementada;
-- Automação do ambiente.
-
-
-E então? Você nos ajuda nessa missão? Você tem 5 dias a partir de agora.
-
-
-Aguardamos ansiosamente seus resultados. Boa sorte e se divirta fazendo!
-
-to do: 
-[x] - concentrar interfaces e types genéricos em um arquivo só (interfaces de props continuam declaradas dentro de seus respectivos componentes)
-
-[x] - Criar api.service com baseUrl em env variable
-
-[+/-] - Substituir conditional chaining (?.) por if not return loading
-
-[x] - revisar lógica de tamanho de linhas de stats graph
-
-[x] - exibir borda em card que foi selecionado
-
-
-to do doc: 
-[ ] - Comentar paginação
+- components: Unidades do sistema, componentes que leem dados e decidem como os exibir.
+- core: Funcionalidades gerais do sistema, é onde ficam as funções que coletam dados e operam sobre eles.
+    - contexts: Fonte de dados para exibição e funções para sua manipulação;
+    - services: Funções de interação com apis;
+    - helpers.ts -> funções puras utilitárias do sistema;
+    - types.d.ts -> fonte de types e interfaces da aplicação;
+- pages: Responsáveis por agregar components na formação de uma página roteada da aplicação
+- test: Arquivos de teste e seus auxiliares
