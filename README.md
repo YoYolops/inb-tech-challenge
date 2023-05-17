@@ -6,7 +6,7 @@ cd inb-tech-challenge &&
 mv .env.example .env &&
 npm i && npm start
 ```
-As variáveis de ambiemte já vão ficar prontinhas. <br>
+As variáveis de ambiente já vão ficar prontinhas. <br>
 Mas pra deixar anotado, só tem uma:
 ```.env
 REACT_APP_API_BASE_URL=https://pokeapi.co/api/v2/pokemon
