@@ -1,10 +1,10 @@
 <h1 align="center">Antes de qualquer coisa, para rodar localmente: </h1>
 
 ```bash
-    git clone https://github.com/YoYolops/inb-tech-challenge && 
-    cd inb-tech-challenge &&
-    mv .env.example .env &&
-    npm i && npm start
+git clone https://github.com/YoYolops/inb-tech-challenge && 
+cd inb-tech-challenge &&
+mv .env.example .env &&
+npm i && npm start
 ```
 As variáveis de ambiemte já vão ficar prontinhas. <br>
 Mas pra deixar anotado, só tem uma:
@@ -16,7 +16,7 @@ REACT_APP_API_BASE_URL=https://pokeapi.co/api/v2/pokemon
 <h3 align="left">Rodando os testes: </h3>
 
 ```bash
-    npm test
+npm test
 ```
 
 ## O que fiz:
