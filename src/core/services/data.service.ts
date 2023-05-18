@@ -8,8 +8,9 @@ export default function DataService() {
 
     async function loadPokemonData(): Promise<Pokemon[] > {
         const promises = []
+        const paginationChunk = 100;
         let from: number = loadedAmount + 1;
-        let to: number = from + 100;
+        let to: number = from + paginationChunk;
 
         if(from > maxDataAmount) return [];
         if(to > maxDataAmount) to = maxDataAmount; 
@@ -18,7 +19,7 @@ export default function DataService() {
             promises.push(fetch(`${baseUrl}/${i}`).then(response => response.json()))
         }
 
-        loadedAmount += 50;
+        loadedAmount += paginationChunk;
         const pokemonData = await Promise.all(promises);
         return pokemonData;
     }
