@@ -8,7 +8,7 @@ export default function DataService() {
 
     async function loadPokemonData(): Promise<Pokemon[] > {
         const promises = []
-        const paginationChunk = 100;
+        const paginationChunk = 50;
         let from: number = loadedAmount + 1;
         let to: number = from + paginationChunk;
 
@@ -16,7 +16,12 @@ export default function DataService() {
         if(to > maxDataAmount) to = maxDataAmount; 
 
         for(let i = from; i < to; i++) {
-            promises.push(fetch(`${baseUrl}/${i}`).then(response => response.json()))
+            promises.push(fetch(`${baseUrl}/${i}`)
+                .then(response => response.json())
+                .catch((error) => {
+                    console.error(`Error while fetching: ${baseUrl}/${i}`)
+                    return { isValid: false }
+                }))
         }
 
         loadedAmount += paginationChunk;
@@ -25,17 +30,23 @@ export default function DataService() {
     }
 
     function formatPokemonData(pokemonData: any): Pokemon[] {
-        return pokemonData.map((data: any) => ({
-            id: data.id,
-            name: data.name,
-            baseExperience: data.base_experience,
-            height: data.height,
-            movesAmount: data.moves.length,
-            sprite: data.sprites.front_default,
-            stats: data.stats.map((stat: any) => ({name: stat.stat.name, value: stat.base_stat})),
-            types: data.types.map((type: any) => (type.type.name)),
-            weight: data.weight
-        }))
+        const formattedPokemonData: Pokemon[] = [];
+
+        pokemonData.forEach((data: any) => {
+            if(data.isValid === false) return;
+            formattedPokemonData.push({
+                id: data.id,
+                name: data.name,
+                baseExperience: data.base_experience,
+                height: data.height,
+                movesAmount: data.moves.length,
+                sprite: data.sprites.front_default,
+                stats: data.stats.map((stat: any) => ({name: stat.stat.name, value: stat.base_stat})),
+                types: data.types.map((type: any) => (type.type.name)),
+                weight: data.weight
+            })
+        })
+        return formattedPokemonData;
     }
 
     return {
