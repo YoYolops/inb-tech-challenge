@@ -55,7 +55,7 @@ export function PokemonDataContextProvider(props: ProviderProps): JSX.Element {
         // Retorna false quando todos os pokemons já foram carregados
 
         setPokemonData(prev => ([...prev, ...(dataService.formatPokemonData(pokemonData))]))
-        return pokemonData[pokemonData.length-1].id;
+        return pokemonData[pokemonData.length-1]?.id;
     }
 
     return (

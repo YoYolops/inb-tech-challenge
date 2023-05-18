@@ -9,7 +9,7 @@ export default function DataService() {
     async function loadPokemonData(): Promise<Pokemon[] > {
         const promises = []
         let from: number = loadedAmount + 1;
-        let to: number = from + 50;
+        let to: number = from + 100;
 
         if(from > maxDataAmount) return [];
         if(to > maxDataAmount) to = maxDataAmount; 
